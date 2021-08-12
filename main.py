@@ -15,11 +15,13 @@ from yahoo_fin.stock_info import *
 print(tickers_sp500())
 
 # Getting input from user and displaying stock price
-stock = input("Please enter a ticket symbol:\n")
+stock = input("Please enter a ticket symbol: ")
 
 if stock.upper() in tickers_sp500():
     print("The stock is in the S&P 500.\n")
     print("The stock price of "+stock.upper()+" is: ", str(round(get_live_price(stock.upper()), 2)))
+    print("Quote Data:\n")
+    print(get_quote_table(stock.upper()))
 else:
     print("Not in the S&P 500")
 
